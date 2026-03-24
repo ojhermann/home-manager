@@ -2,13 +2,12 @@
 
 {
   home.packages = [
-    pkgs.docker-compose-language-service
-    pkgs.yaml-language-server
+    pkgs.yamlfmt
   ];
 
   programs.helix.languages.language = [
     {
-      name = "docker-compose";
+      name = "yaml";
       auto-format = true;
       formatter = {
         command = "yamlfmt";
