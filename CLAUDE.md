@@ -173,6 +173,10 @@ from the repo root to ensure the lock file is current before the PR is opened.
 
 ## Workflow
 
+### Before merging a PR
+
+Run `switch` locally to verify the config applies cleanly before merging.
+
 ### Local development / testing
 
 ```bash
