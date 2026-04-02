@@ -11,4 +11,4 @@ function git-details {
     echo "\[\e[37m\]| \[\e[32m\]⎇ ${branch} \[\e[0m\]"
   fi
 }
-PS1='\[\e[33m\]\u@\h \[\e[37m\]| \[\e[36m\]\w \[\e[37m\]| \[\e[35m\]\D{%Y-%m-%d %H:%M:%S} $(git-details)\n\[\e[37m\]> \[\e[0m\]'
+PS1="\[\e[33m\]\u@\h \[\e[37m\]| \[\e[36m\]\w \[\e[37m\]| \[\e[35m\]\D{%Y-%m-%d %H:%M:%S} \$(git-details)\n\[\e[37m\]> \[\e[0m\]"
