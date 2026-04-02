@@ -35,7 +35,15 @@ stdenv.mkDerivation (finalAttrs: {
       --set DISABLE_AUTOUPDATER 1 \
       --set DISABLE_INSTALLATION_CHECKS 1 \
       --unset DEV \
-      --prefix PATH : ${lib.makeBinPath ([ procps ] ++ lib.optionals stdenv.hostPlatform.isLinux [ bubblewrap socat ])}
+      --prefix PATH : ${
+        lib.makeBinPath (
+          [ procps ]
+          ++ lib.optionals stdenv.hostPlatform.isLinux [
+            bubblewrap
+            socat
+          ]
+        )
+      }
 
     runHook postInstall
   '';

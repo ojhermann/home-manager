@@ -2,7 +2,15 @@
 let
   claudeCode = import ../packages/claude-code.nix {
     inherit lib;
-    inherit (pkgs) stdenv fetchzip makeWrapper nodejs procps bubblewrap socat;
+    inherit (pkgs)
+      stdenv
+      fetchzip
+      makeWrapper
+      nodejs
+      procps
+      bubblewrap
+      socat
+      ;
   };
 in
 {
