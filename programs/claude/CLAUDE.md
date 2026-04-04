@@ -45,6 +45,16 @@ When making changes to `ojhermann-org/github-settings`, always run `tofu init`, 
 
 New repositories default to Nix flakes as the package manager unless the user specifies otherwise. When using Nix flakes, add a `.envrc` containing `use flake` so direnv activates the environment automatically.
 
+## Helix editor
+
+Helix (`hx`) is Otto's default editor. When setting up a new project where the language is known:
+
+1. Add the language's language server(s) to the flake as dev dependencies.
+2. Add a `.helix/languages.toml` to the repo configuring the language server(s) explicitly — this makes the setup reproducible for other Helix users.
+3. Recommend a formatter to Otto and wait for his approval before adding it. Once approved, add it to the flake and wire it into `.helix/languages.toml`.
+
+See `ojhermann/home-manager` under `programs/hx/` for examples of language server and formatter configuration.
+
 ## Configuration management
 
 Config, dotfiles, and tooling are managed via Home Manager in the `ojhermann/home-manager` repo. Barring exceptional circumstances, changes should be made there rather than editing files directly.
