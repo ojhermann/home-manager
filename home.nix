@@ -37,6 +37,7 @@ in
     packages = [ ];
     file = { };
     sessionVariables = {
+      COLORTERM = "truecolor";
       EDITOR = "hx";
       VISUAL = config.home.sessionVariables.EDITOR;
     };
