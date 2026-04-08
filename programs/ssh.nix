@@ -24,4 +24,9 @@
       };
     };
   };
+
+  # `jump` is Darwin-only: it connects to the jump box via SSH over SSM.
+  programs.zsh.shellAliases = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
+    jump = "ssh jump-box";
+  };
 }
