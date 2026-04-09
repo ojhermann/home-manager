@@ -32,7 +32,6 @@ programs/          # One .nix file per tool/program; each returns a HM module
   zellij/          # Zellij layout files
 packages/          # Standalone Nix derivations imported by programs/
   gst.nix          # git status + tree combo script
-  watch-dir.nix    # watchexec wrapper using gst
 ```
 
 ## Key patterns
@@ -118,7 +117,6 @@ language. They are plain HM modules (auto-imported) that extend
 |--------------|-------------|
 | `switch`     | Apply latest `main` config from GitHub (platform-specific) |
 | `gst`        | `git status -sb` + `tree` (or just `tree` outside a git repo) |
-| `watch-dir`  | Run `gst` on every file change via `watchexec` |
 | `new-py-dir` | Create a directory tree and add `__init__.py` to each new dir |
 | `new-zsh`    | Scaffold a new zsh script file |
 | `new-bash`   | Scaffold a new bash script file |
