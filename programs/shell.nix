@@ -2,7 +2,6 @@
 
 let
   gst = import ../packages/gst.nix { inherit pkgs; };
-  watchDir = import ../packages/watch-dir.nix { inherit pkgs gst; };
 
   switchDarwinAarch64 = pkgs.writeShellApplication {
     name = "switch";
@@ -98,7 +97,6 @@ in
     newPyDir
     newZsh
     newBash
-    watchDir
     updateClaudeCode
     update
   ]
