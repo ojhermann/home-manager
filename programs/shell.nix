@@ -81,6 +81,12 @@ let
     '';
   };
 
+  darwinAliases = {
+    "jump-proxy-start" = "ssh -D 1080 -N -f jump-box";
+    "jump-proxy-stop" = "pkill -f 'ssh -D 1080 -N -f jump-box'";
+    "jump-browse" = "firefox -P jump-box -no-remote &";
+  };
+
   commonAliases = {
     ct = "tree -aC --gitignore -I \".terraform|.git\"";
     date = "date +'%Y-%m-%d %H:%M:%S'";
@@ -124,7 +130,7 @@ in
       size = 200;
       ignoreDups = true;
     };
-    shellAliases = commonAliases;
+    shellAliases = commonAliases // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin darwinAliases;
     initContent = (builtins.readFile ./shell/scripts/zsh-init.sh) + ''
       compdef ct=tree
     '';
