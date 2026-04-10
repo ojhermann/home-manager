@@ -14,10 +14,34 @@ let
   };
 in
 {
-  home.packages = [ claudeCode ];
+  programs.claude-code = {
+    enable = true;
+    package = claudeCode;
 
-  home.file.".claude/CLAUDE.md".source = ./claude/CLAUDE.md;
+    memory.source = ./claude/CLAUDE.md;
+
+    settings = {
+      permissions = {
+        allow = [
+          "Bash(aws configure:*)"
+          "Bash(aws ec2:*)"
+          "Bash(curl *)"
+          "Bash(gh *)"
+          "Bash(git *)"
+          "Bash(home-manager *)"
+          "Bash(mise *)"
+          "Bash(nix *)"
+          "Bash(prek *)"
+          "Bash(python *)"
+          "Bash(tofu *)"
+          "Bash(uv *)"
+        ];
+        deny = [ "Bash(tofu apply*)" ];
+      };
+    };
+
+    skills."pre-pr" = ./claude/skills/pre-pr/SKILL.md;
+  };
+
   home.file.".claude/keybindings.json".source = ./claude/keybindings.json;
-  home.file.".claude/settings.json".source = ./claude/settings.json;
-  home.file.".claude/commands/pre-pr.md".source = ./claude/commands/pre-pr.md;
 }
